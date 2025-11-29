@@ -1,20 +1,21 @@
 class Troboz < Formula
-  desc "Expose your local services to the world"
-  homepage "https://github.com/KreasiMaju/troboz"
-  version "0.1.14"
-  
-  if Hardware::CPU.intel?
-    url "https://github.com/KreasiMaju/troboz-release/releases/download/v0.1.14/troboz-0.1.14-macos-x86_64.tar.gz"
-    sha256 "f8eb45709872847ab4eb4fe84cdd8bd3bbe8c0151dc65f19af4c156f1cb98a22"
+  desc "Troboz - Secure tunnel client"
+  homepage "https://troboz.com"
+  version "0.1.41"
+  license "MIT"
+
+  if Hardware::CPU.arm?
+    url "https://github.com/KreasiMaju/troboz-release/releases/download/v0.1.41/troboz-0.1.41-macos-arm64.tar.gz"
+    sha256 "12c5f4a04ca0845fb82fa592a715a0ef044b8dc705dfbc004c3aec40d21d932d"
   else
-    url "https://github.com/KreasiMaju/troboz-release/releases/download/v0.1.14/troboz-0.1.14-macos-arm64.tar.gz"
-    sha256 "02515ceea4483992d41327fe70b4969df44dee3caed3039f74baf00a3fea499a"
+    url "https://github.com/KreasiMaju/troboz-release/releases/download/v0.1.41/troboz-0.1.41-macos-x86_64.tar.gz"
+    sha256 "f520eb511ba02eb44c66cff9e74e6939d640358c237e99da7dae9cb74cb3dfe8"
   end
-  
+
   def install
     bin.install "troboz"
   end
-  
+
   test do
     system "#{bin}/troboz", "--version"
   end
